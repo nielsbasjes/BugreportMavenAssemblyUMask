@@ -6,7 +6,7 @@ cd "${SCRIPTDIR}" || exit 1
 function buildWithMask() {
   umask $1
   mvn clean package
-  mv target target-${UMASK}
+  mv target target-$1
 }
 
 buildWithMask 0002
