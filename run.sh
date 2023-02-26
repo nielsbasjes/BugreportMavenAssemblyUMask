@@ -43,12 +43,12 @@ UserSpecificDocker
        "demomaven-${USER_NAME}-${UMASK}"                 \
        mvn clean package
 
-    mv demo/target demo-target-${UMASK}
+    mv target target-${UMASK}
 }
 
 buildWithMask 0002
 buildWithMask 0022
 buildWithMask 0055
 
-ls -laF demo-target*/*.jar
-md5sum demo-target*/*.jar
+ls -laF target*/*.jar
+md5sum target*/*.jar
