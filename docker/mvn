@@ -1,8 +1,0 @@
-#!/bin/bash
-
-umask ${UMASK}
-
-echo -n "umask has been set to "
-umask
-
-exec /usr/bin/mvn "$@"
