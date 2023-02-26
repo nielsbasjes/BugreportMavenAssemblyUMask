@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>nl.basjes.bugreports</groupId>
-  <artifactId>assemblyumask</artifactId>
+  <artifactId>assemblyumask-parent</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>assemblyumask</name>
+  <packaging>pom</packaging>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,82 +19,8 @@
     <project.build.outputTimestamp>2003-03-03T03:03:03Z</project.build.outputTimestamp>
   </properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.20.0</version>
-    </dependency>
-  </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <version>3.4.2</version>
-        <executions>
-          <execution>
-            <id>make-super-jar-default</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <descriptors>
-                <descriptor>src/main/assembly/udf-default.xml</descriptor>
-              </descriptors>
-              <archive>
-                <addMavenDescriptor>true</addMavenDescriptor>
-              </archive>
-            </configuration>
-          </execution>
-
-          <execution>
-            <id>make-super-jar-mode</id>
-            <phase>package</phase>
-            <goals>
-              <goal>single</goal>
-            </goals>
-            <configuration>
-              <descriptors>
-                <descriptor>src/main/assembly/udf-mode.xml</descriptor>
-              </descriptors>
-              <archive>
-                <addMavenDescriptor>true</addMavenDescriptor>
-              </archive>
-            </configuration>
-          </execution>
-
-        </executions>
-      </plugin>
-
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-clean-plugin</artifactId>
-        <version>3.2.0</version>
-        <executions>
-          <execution>
-            <id>Remove mozilla-public-suffix-list.txt to force download.</id>
-            <phase>clean</phase>
-            <goals>
-              <goal>clean</goal>
-            </goals>
-            <configuration>
-              <filesets>
-                <fileset>
-                  <directory>${project.basedir}</directory>
-                  <includes>
-                    <include>target-*</include>
-                  </includes>
-                </fileset>
-              </filesets>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-
-    </plugins>
-  </build>
+  <modules>
+    <module>demo</module>
+  </modules>
 
 </project>
